@@ -17,9 +17,9 @@ spring:
     name: ms-inventory-orders
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://${DATABASE_URL :172.17.0.5}:${PGPORT:5432}/${PGDATABASE:operador}
+    url: jdbc:postgresql://${DATABASE_URL :6mgkSTKfUXwZKm2K62Zo@containers-us-west-41.railway.app}:${PGPORT:7966}/${PGDATABASE:railway}
     username: ${PGUSER:postgres}
-    password: ${PGPASSWORD:gis123}
+    password: ${PGPASSWORD:6mgkSTKfUXwZKm2K62Zo}
     host: ${PGHOST:containers-us-west-41.railway.app}
 
     # url: jdbc:h2:mem:testdb
