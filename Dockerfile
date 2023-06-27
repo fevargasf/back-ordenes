@@ -11,19 +11,19 @@ COPY . .
 # se establecen los argumentos para tomar desde el proceso debuilding.
 
 ARG DATABASE_URL
-ARG PGUSER
-ARG PGPASSWORD
-ARG PGHOST
-ARG PGPORT
-ARG PGDATABASE
+ARG USER
+ARG PASSWORD
+ARG HOST
+ARG PORT
+ARG DATABASE
 #    se utilzia el comando sed para reemplazar las variables "tales" por los valores tomados desde el proceso de building
 
 RUN sed -i 's/DATABASE_URL/$DATABASE_URL/' src/main/resources/application.yml
-RUN sed -i 's/PGUSER/$PGUSER/' src/main/resources/application.yml
-RUN sed -i 's/PGPASSWORD/$PGPASSWORD/' src/main/resources/application.yml
-RUN sed -i 's/PGHOST/$PGHOST/' src/main/resources/application.yml
-RUN sed -i 's/PGPORT/$PGPORT/' src/main/resources/application.yml
-RUN sed -i 's/PGDATABASE/$PGDATABASE/' src/main/resources/application.yml
+RUN sed -i 's/USER/$USER/' src/main/resources/application.yml
+RUN sed -i 's/PASSWORD/$PASSWORD/' src/main/resources/application.yml
+RUN sed -i 's/HOST/$HOST/' src/main/resources/application.yml
+RUN sed -i 's/PORT/$PORT/' src/main/resources/application.yml
+RUN sed -i 's/DATABASE/$DATABASE/' src/main/resources/application.yml
 
 RUN mvn clean package
 
