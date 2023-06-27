@@ -14,7 +14,7 @@ ARG DATABASE_URL
 ARG USER
 ARG PASSWORD
 ARG HOST
-ARG PORT
+ARG PGPORT
 ARG DATABASE
 #    se utilzia el comando sed para reemplazar las variables "tales" por los valores tomados desde el proceso de building
 
@@ -22,7 +22,7 @@ RUN sed -i 's/DATABASE_URL/$DATABASE_URL/' src/main/resources/application.yml
 RUN sed -i 's/USER/$USER/' src/main/resources/application.yml
 RUN sed -i 's/PASSWORD/$PASSWORD/' src/main/resources/application.yml
 RUN sed -i 's/HOST/$HOST/' src/main/resources/application.yml
-RUN sed -i 's/PORT/$PORT/' src/main/resources/application.yml
+RUN sed -i 's/PGPORT/$PGPORT/' src/main/resources/application.yml
 RUN sed -i 's/DATABASE/$DATABASE/' src/main/resources/application.yml
 
 RUN mvn clean package
