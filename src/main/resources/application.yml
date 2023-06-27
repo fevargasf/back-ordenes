@@ -17,9 +17,10 @@ spring:
     name: ms-inventory-orders
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://${POSTGRES_DB_SERVER:172.17.0.5}:5432/operador
-    username: ${POSTGRES_DATASOURCE_USERNAME:postgres}
-    password: ${POSTGRES_DATASOURCE_PASSWORD:gis123}
+    url: jdbc:postgresql://${DATABASE_URL :172.17.0.5}:${PGPORT:5432}/${PGDATABASE:operador}
+    username: ${PGUSER:postgres}
+    password: ${PGPASSWORD:gis123}
+    host: ${PGHOST:containers-us-west-41.railway.app}
 
     # url: jdbc:h2:mem:testdb
   jpa:
@@ -32,6 +33,6 @@ spring:
     open-in-view: false
     generate-ddl: true
 
-## Configuracion secundaria (custom)
+## Configuracion secundaria (custom) http://ms-inventory-products/products
 getProduct:
-  url: http://ms-inventory-products/products/available
+  url: https://back-productoselastic-production.up.railway.app/available

@@ -10,16 +10,20 @@ FROM maven:3.8.1-openjdk-17 AS build
 COPY . .
 # se establecen los argumentos para tomar desde el proceso debuilding.
 
-ARG POSTGRES_DB_SERVER
-ARG POSTGRES_DATASOURCE_USERNAME
-ARG POSTGRES_DATASOURCE_PASSWORD
-
+ARG DATABASE_URL
+ARG PGUSER
+ARG PGPASSWORD
+ARG PGHOST
+ARG PGPORT
+ARG PGDATABASE
 #    se utilzia el comando sed para reemplazar las variables "tales" por los valores tomados desde el proceso de building
 
-RUN sed -i 's/POSGRESQL_DB_SERVER/$POSTGRES_DB_SERVER/' src/main/resources/application.yml
-RUN sed -i 's/POSGRESQL_DB_SERVER/$POSTGRES_DATASOURCE_USERNAME/' src/main/resources/application.yml
-RUN sed -i 's/POSGRESQL_DB_SERVER/$POSTGRES_DATASOURCE_PASSWORD/' src/main/resources/application.yml
-
+RUN sed -i 's/DATABASE_URL/$DATABASE_URL/' src/main/resources/application.yml
+RUN sed -i 's/PGUSER/$PGUSER/' src/main/resources/application.yml
+RUN sed -i 's/PGPASSWORD/$PGPASSWORD/' src/main/resources/application.yml
+RUN sed -i 's/PGHOST/$PGHOST/' src/main/resources/application.yml
+RUN sed -i 's/PGPORT/$PGPORT/' src/main/resources/application.yml
+RUN sed -i 's/PGDATABASE/$PGDATABASE/' src/main/resources/application.yml
 
 RUN mvn clean package
 
